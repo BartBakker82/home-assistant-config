@@ -1,0 +1,8 @@
+alias: "Buitenlicht uit om 01:00 uur"
+trigger:
+  platform: time
+  at: "01:00:00"
+action:
+  service: light.turn_off
+  target:
+    entity_id: light.buiten

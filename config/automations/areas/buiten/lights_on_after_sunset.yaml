@@ -1,0 +1,10 @@
+alias: "Buitenlicht aan na zonsondergang"
+trigger:
+  platform: sun
+  event: sunset
+action:
+  service: light.turn_on
+  data:
+    brightness_pct: 50
+  target:
+    entity_id: light.buiten
