@@ -1,0 +1,7 @@
+platform: circadian_lighting
+name: Woonkamer adaptive lights
+min_brightness: 40
+lights_ct:
+  - light.zithoek_bank_links
+  - light.zithoek_tv_links
+  - light.zithoek_tv_rechts

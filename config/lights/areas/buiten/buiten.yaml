@@ -1,0 +1,6 @@
+platform: group
+name: Buiten
+entities:
+  - light.schuur
+  - light.achterdeur
+  - light.voordeur

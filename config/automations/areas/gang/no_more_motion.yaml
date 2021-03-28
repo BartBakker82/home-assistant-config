@@ -1,0 +1,20 @@
+alias: "Doe de lampen in de gang uit wanneer er geen beweging meer is na 1 minuut"
+trigger:
+  platform: state
+  entity_id: binary_sensor.hue_motion_gang
+  to: "off"
+  for:
+    minutes: 1
+action:
+  - service: switch.turn_off
+    target:
+      entity_id: switch.circadian_lighting_gang_adaptive_lights
+  - service: light.turn_on
+    data:
+      brightness_pct: 10
+    target:
+      entity_id: light.gang_lampen    
+  - delay: 10
+  - service: light.turn_off
+    target:
+      entity_id: light.gang_lampen

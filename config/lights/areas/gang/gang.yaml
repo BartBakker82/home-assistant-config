@@ -1,0 +1,6 @@
+platform: group
+name: Gang lampen
+entities:
+  - light.gang_plafond
+  - light.gang_wandlampje_1
+  - light.gang_wandlampje_2

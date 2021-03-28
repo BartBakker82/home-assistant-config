@@ -1,0 +1,27 @@
+alias: "Lichten aan een uur voor zonsondergang"
+trigger:
+  platform: sun
+  event: sunset
+  offset: "-01:00:00"
+condition:
+  condition: state
+  entity_id: group.family
+  state: "home"
+action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.circadian_lighting_woonkamer_adaptive_lights
+  - service: light.turn_on
+    data:
+      kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
+      brightness_pct: "{{ state_attr('switch.circadian_lighting_woonkamer_adaptive_lights', 'brightness') | int }}"
+    target:
+      entity_id: light.zithoek
+  - service: light.turn_on
+    data:
+      brightness_pct: 40
+    target:
+      entity_id: light.eettafel
+  - service: light.turn_on
+    target:
+      entity_id: light.vitrinekast

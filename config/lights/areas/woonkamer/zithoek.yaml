@@ -1,0 +1,6 @@
+platform: group
+name: Zithoek
+entities:
+  - light.zithoek_tv_links
+  - light.zithoek_bank_links
+  - light.zithoek_tv_rechts

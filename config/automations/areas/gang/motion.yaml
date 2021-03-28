@@ -1,0 +1,15 @@
+alias: "Doe de lampen in de gang aan wanneer beweging wordt gedetecteerd"
+trigger:
+  platform: state
+  entity_id: binary_sensor.hue_motion_gang
+  to: "on"
+action:
+  - service: switch.turn_on
+    target:
+      entity_id: switch.circadian_lighting_gang_adaptive_lights
+  - service: light.turn_on
+    data:
+      kelvin: "{{ state_attr('sensor.circadian_values', 'colortemp') | int }}"
+      brightness_pct: "{{ state_attr('switch.circadian_lighting_gang_adaptive_lights', 'brightness') | int }}"
+    target:
+      entity_id: light.gang_lampen
