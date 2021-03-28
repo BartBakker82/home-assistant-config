@@ -1,9 +1,13 @@
 alias: "Lichten aan wanneer we thuis komen"
 trigger:
-  - platform: state
-    entity_id: group.family
-    from: "not_home"
-    to: "home"
+  platform: state
+  entity_id: group.family
+  from: "not_home"
+  to: "home"
+condition:
+  condition: state
+  entity_id: sun
+  state: "below_horizon"
 action:
   - service: switch.turn_on
     target:
